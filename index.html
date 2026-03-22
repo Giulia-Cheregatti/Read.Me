@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read.Me — Plataforma para treinar leitura em inglês com textos autênticos e quizzes pedagógicos." />
+  <meta name="theme-color" content="#059669" />
+
+  <title>Read.Me — Pratique Inglês Lendo</title>
+
+  <!-- Google Fonts: Inter + Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      p4
+  />
+
+  <!-- Folha de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- NAVBAR — barra de navegação principal -->
+  <header class="navbar" role="banner" id="navbar">
+    <div class="navbar__container">
+
+      <!-- Logotipo -->
+      <a href="#home" class="navbar__logo" aria-label="Read.Me — Página inicial">
+        <span class="navbar__logo-icon" aria-hidden="true">📖</span>
+        <span class="navbar__logo-text">Read<span class="navbar__logo-accent">.Me</span></span>
+      </a>
+
+      <!-- Navegação central -->
+      <nav class="navbar__nav" role="navigation" aria-label="Navegação principal">
+        <a href="#home"     class="navbar__link" data-i18n="nav.home">Início</a>
+        <a href="#levels"   class="navbar__link" data-i18n="nav.levels">Níveis</a>
+        <a href="#progress" class="navbar__link" data-i18n="nav.progress">Progresso</a>
+      </nav>
+
+      <!-- Controles de tema e idioma -->
+      <div class="navbar__controls">
+
+        <!-- Botão de troca de idioma PT ↔ EN -->
+        <button
+          class="btn-control btn-lang"
+          id="btn-lang"
+          aria-label="Alternar idioma"
+          title="Switch language"
+        >
+          <span class="btn-lang__flag" aria-hidden="true">🇧🇷</span>
+          <span class="btn-lang__label" id="lang-label">PT</span>
+        </button>
+
+        <!-- Toggle dark/light mode -->
+        <button
+          class="btn-control btn-theme"
+          id="btn-theme"
+          aria-label="Alternar tema escuro/claro"
+          title="Toggle dark mode"
+        >
+          <!-- Ícone exibido dinamicamente via JS -->
+          <span class="btn-theme__icon" id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Botão hambúrguer para mobile -->
+        <button
+          class="btn-control btn-menu"
+          id="btn-menu"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="btn-menu__bar"></span>
+          <span class="btn-menu__bar"></span>
+          <span class="btn-menu__bar"></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Menu mobile (colapsável) -->
+    <nav
+      class="navbar__mobile-menu"
+      id="mobile-menu"
+      aria-label="Menu mobile"
+      aria-hidden="true"
+    >
+      <a href="#home"     class="navbar__mobile-link" data-i18n="nav.home">Início</a>
+      <a href="#levels"   class="navbar__mobile-link" data-i18n="nav.levels">Níveis</a>
+      <a href="#progress" class="navbar__mobile-link" data-i18n="nav.progress">Progresso</a>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL — views alternadas via router -->
+  <main class="main-content" id="app" role="main">
+
+    <!-- VIEW: #home — Página inicial / landing -->
+    <section class="view" id="view-home" aria-labelledby="hero-title">
+
+      <!-- Hero section -->
+      <div class="hero">
+        <div class="hero__content">
+          <span class="hero__badge" data-i18n="hero.badge">✨ Leitura em inglês</span>
+          <h1 class="hero__title" id="hero-title">
+            <span data-i18n="hero.title.line1">Leia mais.</span><br />
+            <em data-i18n="hero.title.line2">Aprenda melhor.</em>
+          </h1>
+          <p class="hero__subtitle" data-i18n="hero.subtitle">
+            Textos autênticos em inglês do nível A1 ao C2, com quizzes inteligentes e acompanhamento de progresso.
+          </p>
+          <div class="hero__actions">
+            <a href="#levels" class="btn btn--primary" data-i18n="hero.cta.primary">
+              Explorar níveis
+            </a>
+            <a href="#progress" class="btn btn--ghost" data-i18n="hero.cta.secondary">
+              Ver progresso
+            </a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__card-float hero__card-float--1">A1</div>
+          <div class="hero__card-float hero__card-float--2">B2</div>
+          <div class="hero__card-float hero__card-float--3">C1</div>
+        </div>
+      </div>
+
+      <!-- Stats rápidos -->
+      <div class="stats-bar">
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">12</span>
+          <span class="stats-bar__label" data-i18n="stats.texts">textos</span>
+        </div>
+        <div class="stats-bar__divider" aria-hidden="true"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">6</span>
+          <span class="stats-bar__label" data-i18n="stats.levels">níveis CEFR</span>
+        </div>
+        <div class="stats-bar__divider" aria-hidden="true"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">96</span>
+          <span class="stats-bar__label" data-i18n="stats.questions">questões</span>
+        </div>
+        <div class="stats-bar__divider" aria-hidden="true"></div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__number">100%</span>
+          <span class="stats-bar__label" data-i18n="stats.free">gratuito</span>
+        </div>
+      </div>
+
+      <!-- Teaser dos 6 níveis na home -->
+      <div class="section">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="home.levels.title">Escolha seu nível</h2>
+          <p class="section__subtitle" data-i18n="home.levels.subtitle">
+            Baseado no sistema CEFR (Common European Framework of Reference)
+          </p>
+        </div>
+        <!-- Cards de nível são injetados via JS aqui -->
+        <div class="levels-grid levels-grid--home" id="home-levels-grid" role="list">
+          <!-- LevelCard.js injeta aqui -->
+        </div>
+        <div class="section__footer">
+          <a href="#levels" class="btn btn--outline" data-i18n="home.levels.viewAll">
+            Ver todos os níveis →
+          </a>
+        </div>
+      </div>
+
+      <!-- Como funciona -->
+      <div class="section section--alt">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="home.how.title">Como funciona?</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-card__number" aria-hidden="true">01</div>
+            <h3 class="step-card__title" data-i18n="home.how.step1.title">Escolha um texto</h3>
+            <p class="step-card__desc" data-i18n="home.how.step1.desc">
+              Selecione seu nível CEFR e escolha entre os textos disponíveis com tempo estimado de leitura.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number" aria-hidden="true">02</div>
+            <h3 class="step-card__title" data-i18n="home.how.step2.title">Leia com atenção</h3>
+            <p class="step-card__desc" data-i18n="home.how.step2.desc">
+              Clique em palavras destacadas para ver a tradução instantânea. Leia no seu ritmo.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number" aria-hidden="true">03</div>
+            <h3 class="step-card__title" data-i18n="home.how.step3.title">Faça o quiz</h3>
+            <p class="step-card__desc" data-i18n="home.how.step3.desc">
+              8 questões variadas com feedback imediato. Veja sua pontuação e revise as respostas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section> <!-- /view-home -->
+
+
+    <!-- VIEW: #levels — Grade de todos os 6 níveis -->
+    <section class="view" id="view-levels" aria-labelledby="levels-page-title" hidden>
+      <div class="page-header">
+        <h1 class="page-header__title" id="levels-page-title" data-i18n="levels.title">
+          Níveis de Leitura
+        </h1>
+        <p class="page-header__subtitle" data-i18n="levels.subtitle">
+          Do iniciante ao avançado — escolha onde está e pratique diariamente.
+        </p>
+      </div>
+      <div class="levels-grid" id="levels-grid" role="list">
+        <!-- LevelCard.js injeta aqui -->
+      </div>
+    </section> <!-- /view-levels -->
+
+
+    <!-- VIEW: #level/:id — Textos de um nível específico -->
+    <section class="view" id="view-level-detail" aria-labelledby="level-detail-title" hidden>
+      <div class="page-header">
+        <button class="btn btn--ghost btn--back" id="btn-back-to-levels" data-i18n="btn.back">
+          ← Voltar
+        </button>
+        <div class="level-detail-header">
+          <span class="level-badge" id="level-detail-badge">A1</span>
+          <div>
+            <h1 class="page-header__title" id="level-detail-title">Beginner</h1>
+            <p class="page-header__subtitle" id="level-detail-desc"></p>
+          </div>
+        </div>
+      </div>
+      <!-- TextCards injetados via JS -->
+      <div class="texts-grid" id="texts-grid" role="list">
+        <!-- TextCard.js injeta aqui -->
+      </div>
+    </section><!-- /view-level-detail -->
+
+
+    <!-- VIEW: #progress — Painel de progresso -->
+    <section class="view" id="view-progress" aria-labelledby="progress-page-title" hidden>
+      <div class="page-header">
+        <h1 class="page-header__title" id="progress-page-title" data-i18n="progress.title">
+          Meu Progresso
+        </h1>
+        <p class="page-header__subtitle" data-i18n="progress.subtitle">
+          Acompanhe sua evolução na leitura em inglês.
+        </p>
+      </div>
+
+      <!-- Cards de estatísticas -->
+      <div class="progress-stats" id="progress-stats" role="region" aria-label="Estatísticas">
+        <div class="stat-card">
+          <span class="stat-card__icon" aria-hidden="true">📚</span>
+          <span class="stat-card__value" id="stat-texts-read">0</span>
+          <span class="stat-card__label" data-i18n="progress.stat.textsRead">Textos lidos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__icon" aria-hidden="true">✅</span>
+          <span class="stat-card__value" id="stat-quizzes-done">0</span>
+          <span class="stat-card__label" data-i18n="progress.stat.quizzesDone">Quizzes feitos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__icon" aria-hidden="true">🏆</span>
+          <span class="stat-card__value" id="stat-avg-score">—</span>
+          <span class="stat-card__label" data-i18n="progress.stat.avgScore">Nota média</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__icon" aria-hidden="true">🔥</span>
+          <span class="stat-card__value" id="stat-streak">0</span>
+          <span class="stat-card__label" data-i18n="progress.stat.streak">Dias seguidos</span>
+        </div>
+      </div>
+
+      <!-- Progresso por nível -->
+      <div class="section">
+        <h2 class="section__title" data-i18n="progress.byLevel">Progresso por nível</h2>
+        <div class="progress-levels" id="progress-levels">
+          <!-- Injetado via JS -->
+        </div>
+      </div>
+
+      <!-- Histórico de resultados -->
+      <div class="section">
+        <div class="section__header section__header--row">
+          <h2 class="section__title" data-i18n="progress.history">Histórico recente</h2>
+          <button class="btn btn--danger btn--sm" id="btn-reset-progress" data-i18n="progress.reset">
+            Resetar progresso
+          </button>
+        </div>
+        <div class="history-list" id="history-list" role="list">
+          <!-- Injetado via JS -->
+        </div>
+        <p class="empty-state" id="history-empty" data-i18n="progress.empty" hidden>
+          Nenhum quiz concluído ainda. Comece lendo um texto! 🚀
+        </p>
+      </div>
+
+    </section> <!-- /view-progress -->
+
+  </main> <!-- /main-content -->
+
+
+  <!-- MODAL: Leitura do texto (ReadingModal) -->
+  <div
+    class="modal-overlay"
+    id="reading-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="reading-modal-title"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="modal modal--reading">
+
+      <!-- Cabeçalho do modal -->
+      <div class="modal__header">
+        <div class="modal__header-meta">
+          <span class="level-badge level-badge--sm" id="reading-level-badge">A1</span>
+          <span class="modal__read-time" id="reading-time">
+            <span aria-hidden="true">⏱</span>
+            <span id="reading-time-text">3 min</span>
+          </span>
+        </div>
+        <h2 class="modal__title" id="reading-modal-title">Text Title</h2>
+        <button
+          class="modal__close"
+          id="reading-modal-close"
+          aria-label="Fechar modal de leitura"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Palavras-chave / vocabulário -->
+      <div class="modal__vocab" id="reading-vocab" aria-label="Vocabulário-chave">
+        <span class="modal__vocab-label" data-i18n="reading.vocab">Vocabulário:</span>
+        <div class="vocab-chips" id="vocab-chips-container">
+          <!-- chips injetados via JS -->
+        </div>
+      </div>
+
+      <!-- Corpo do texto — palavras clicáveis injetadas via JS -->
+      <div class="modal__body modal__body--reading" id="reading-body" lang="en">
+        <!-- Conteúdo do texto injetado via JS -->
+      </div>
+
+      <!-- Tooltip de tradução de palavras -->
+      <div
+        class="word-tooltip"
+        id="word-tooltip"
+        role="tooltip"
+        aria-live="polite"
+        hidden
+      > </div>
+
+      <!-- Rodapé do modal -->
+      <div class="modal__footer">
+        <button class="btn btn--ghost" id="reading-modal-close-btn" data-i18n="btn.close">
+          Fechar
+        </button>
+        <button class="btn btn--primary" id="btn-start-quiz" data-i18n="btn.startQuiz">
+          Iniciar Quiz →
+        </button>
+      </div>
+
+    </div>
+  </div> <!-- /reading-modal -->
+
+
+  <!-- MODAL: Quiz (QuizModal) -->
+  <div
+    class="modal-overlay"
+    id="quiz-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="quiz-modal-title"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="modal modal--quiz">
+
+      <!-- Cabeçalho do quiz -->
+      <div class="modal__header">
+        <div class="modal__header-meta">
+          <span class="modal__quiz-progress" id="quiz-progress-label">1 / 8</span>
+          <!-- Barra de progresso do quiz -->
+          <div class="quiz-progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="8">
+            <div class="quiz-progress-bar__fill" id="quiz-progress-fill"></div>
+          </div>
+        </div>
+        <h2 class="modal__title" id="quiz-modal-title" data-i18n="quiz.title">Quiz</h2>
+        <button
+          class="modal__close"
+          id="quiz-modal-close"
+          aria-label="Fechar quiz"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Área da pergunta -->
+      <div class="modal__body modal__body--quiz">
+
+        <!-- Tipo da questão (badge) -->
+        <span class="question-type-badge" id="question-type-badge">Multiple Choice</span>
+
+        <!-- Enunciado -->
+        <p class="question-text" id="question-text"></p>
+
+        <!-- Opções de resposta (múltipla escolha / V/F) -->
+        <div class="question-options" id="question-options" role="group" aria-labelledby="question-text">
+          <!-- Injetado via JS -->
+        </div>
+
+        <!-- Input fill-in-the-blank -->
+        <div class="question-fill" id="question-fill" hidden>
+          <input
+            type="text"
+            class="fill-input"
+            id="fill-input"
+            aria-label="Resposta"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="btn btn--primary" id="btn-submit-fill" data-i18n="btn.confirm">
+            Confirmar
+          </button>
+        </div>
+
+        <!-- Feedback da resposta -->
+        <div class="question-feedback" id="question-feedback" hidden aria-live="assertive">
+          <div class="feedback-icon" id="feedback-icon" aria-hidden="true"></div>
+          <div class="feedback-text">
+            <p class="feedback-result" id="feedback-result"></p>
+            <p class="feedback-explanation" id="feedback-explanation"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé do quiz -->
+      <div class="modal__footer">
+        <span class="quiz-score-live" id="quiz-score-live" aria-live="polite">
+          <span data-i18n="quiz.score">Pontos:</span>
+          <strong id="quiz-current-score">0</strong>
+        </span>
+        <button
+          class="btn btn--primary"
+          id="btn-next-question"
+          data-i18n="btn.next"
+          hidden>
+          Próxima →
+        </button>
+      </div>
+
+    </div>
+  </div> <!-- /quiz-modal -->
+
+
+  <!-- MODAL: Resultado final do quiz -->
+  <div
+    class="modal-overlay"
+    id="result-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="result-modal-title"
+    aria-hidden="true"
+    hidden>
+
+    <div class="modal modal--result">
+      <div class="result-content">
+        <div class="result-emoji" id="result-emoji" aria-hidden="true">🏆</div>
+        <h2 class="result-title" id="result-modal-title" data-i18n="result.title">Quiz concluído!</h2>
+        <p class="result-subtitle" id="result-subtitle"></p>
+
+        <!-- Pontuação circular -->
+        <div class="result-score-circle" id="result-score-circle" aria-label="Pontuação final">
+          <svg class="score-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="score-ring__bg" cx="60" cy="60" r="50"/>
+            <circle class="score-ring__fill" id="score-ring-fill" cx="60" cy="60" r="50"/>
+          </svg>
+          <div class="result-score-value">
+            <span id="result-score-percent">0%</span>
+          </div>
+        </div>
+
+        <p class="result-detail" id="result-detail"></p>
+
+        <!-- Breakdown por questão -->
+        <div class="result-breakdown" id="result-breakdown" aria-label="Detalhamento das respostas">
+          <!-- Injetado via JS -->
+        </div>
+
+        <div class="result-actions">
+          <button class="btn btn--ghost" id="btn-retry-quiz" data-i18n="btn.retry">
+            Tentar novamente
+          </button>
+          <button class="btn btn--primary" id="btn-close-result" data-i18n="btn.finish">
+            Concluir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /result-modal -->
+
+
+  <!-- TOAST — notificações leves -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__container">
+      <p class="footer__text">
+        <span data-i18n="footer.made">Construído por</span>
+        <span aria-hidden="true"> 
+          <a href="https://www.instagram.com/_giulia.dev/" target="_blank">
+            @_giulia.dev
+          </a>
+        </span>
+      </p>
+      <p class="footer__copy" data-i18n="footer.copy">
+        Read.Me — Todos os direitos reservados
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Arquivos JAVASCRIPT — carregamento em ordem de dependência  -->
+
+  <!-- Dados -->
+  <script src="js/data/levels.js"></script>
+  <script src="js/data/texts.js"></script>
+
+  <!-- Módulos utilitários -->
+  <script src="js/i18n.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/storage.js"></script>
+
+  <!-- Componentes -->
+  <script src="js/components/LevelCard.js"></script>
+  <script src="js/components/TextCard.js"></script>
+  <script src="js/components/ReadingModal.js"></script>
+  <script src="js/components/QuizModal.js"></script>
+  <script src="js/components/Navbar.js"></script>
+
+  <!-- Roteador e inicialização -->
+  <script src="js/router.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+/**
+ * stats-bar.css — Barra de estatísticas rápidas
+ */
+
+.stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-10);
+  margin-bottom: var(--space-20);
+  box-shadow: var(--shadow-xs);
+  flex-wrap: wrap;
+}
+
+.stats-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.stats-bar__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stats-bar__label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.stats-bar__divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border-color);
+  flex-shrink: 0;
+}

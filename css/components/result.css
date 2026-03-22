@@ -1,0 +1,153 @@
+/**
+ * result.css — Modal de resultado final do quiz
+ */
+
+/* Esconde o header padrão no modal de resultado */
+.modal--result .modal__header {
+  display: none;
+}
+
+/* =============================================
+   LAYOUT DO RESULTADO
+============================================= */
+
+.result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-10) var(--space-8);
+  text-align: center;
+  overflow-y: auto;
+  max-height: 90vh;
+  max-height: 90dvh;
+}
+
+.result-emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+  animation: bounceIn 0.5s var(--ease-out);
+}
+
+.result-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.result-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+
+/* =============================================
+   ANEL SVG DE PONTUAÇÃO
+============================================= */
+
+.result-score-circle {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  flex-shrink: 0;
+}
+
+.score-ring {
+  width: 148px;
+  height: 148px;
+  transform: rotate(-90deg);
+}
+
+.score-ring__bg {
+  fill: none;
+  stroke: var(--bg-secondary);
+  stroke-width: 10;
+}
+
+.score-ring__fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 1.1s var(--ease-out);
+}
+
+.result-score-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result-score-percent {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.result-detail {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* =============================================
+   BREAKDOWN POR QUESTÃO
+============================================= */
+
+.result-breakdown {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.breakdown-item--correct {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.breakdown-item--wrong {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.breakdown-item__num {
+  font-weight: 800;
+  flex-shrink: 0;
+  width: 22px;
+}
+
+/* =============================================
+   AÇÕES DO RESULTADO
+============================================= */
+
+.result-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}

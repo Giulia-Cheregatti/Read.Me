@@ -1,0 +1,43 @@
+/**
+ * styles.css — Ponto de entrada do sistema de estilos
+ *
+ * Importa todos os módulos na ordem correta de cascata:
+ * 1. Base (variáveis, reset, tipografia)
+ * 2. Layout (utilitários, seções)
+ * 3. Componentes
+ * 4. Animações
+ * 5. Tema escuro (sobrescreve variáveis)
+ * 6. Responsividade (sobrescreve componentes — sempre por último)
+ */
+
+/* --- 1. Base ---------------------------------------- */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* --- 2. Layout -------------------------------------- */
+@import url('./layout/utilities.css');
+@import url('./layout/sections.css');
+
+/* --- 3. Componentes --------------------------------- */
+@import url('./components/navbar.css');
+@import url('./components/hero.css');
+@import url('./components/stats-bar.css');
+@import url('./components/cards.css');
+@import url('./components/steps.css');
+@import url('./components/progress.css');
+@import url('./components/modal.css');
+@import url('./components/quiz.css');
+@import url('./components/result.css');
+@import url('./components/tooltip.css');
+@import url('./components/toast.css');
+@import url('./components/footer.css');
+
+/* --- 4. Animações ----------------------------------- */
+@import url('./animations.css');
+
+/* --- 5. Tema escuro --------------------------------- */
+@import url('./themes/dark.css');
+
+/* --- 6. Responsividade (sempre por último) ---------- */
+@import url('./responsive.css');

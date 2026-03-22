@@ -1,0 +1,147 @@
+/**
+ * dark.css — Overrides do tema escuro
+ * Ativado via data-theme="dark" no elemento <html>
+ */
+
+[data-theme="dark"] {
+
+  /* =============================================
+     VARIÁVEIS — sobrescreve semânticas
+  ============================================= */
+
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #161b22;
+  --bg-card:       #1c2128;
+  --bg-card-hover: #21262d;
+  --bg-overlay:    rgba(0, 0, 0, 0.78);
+  --bg-modal:      #1c2128;
+  --bg-input:      #0d1117;
+
+  --text-primary:   #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted:     #6e7681;
+  --text-inverse:   #0d1117;
+
+  --accent:         #34d399;
+  --accent-hover:   #10b981;
+  --accent-light:   rgba(52, 211, 153, 0.12);
+  --accent-text:    #34d399;
+
+  --border-color:   #30363d;
+  --border-focus:   #34d399;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.65);
+}
+
+/* =============================================
+   AJUSTES ESPECÍFICOS DE COMPONENTE
+============================================= */
+
+/* Quiz — opções */
+[data-theme="dark"] .option-btn--correct {
+  background-color: rgba(22, 163, 74, 0.18);
+  border-color: #16a34a;
+  color: #4ade80;
+}
+
+[data-theme="dark"] .option-btn--wrong {
+  background-color: rgba(220, 38, 38, 0.18);
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+/* Quiz — feedback */
+[data-theme="dark"] .question-feedback--correct {
+  background-color: rgba(22, 163, 74, 0.13);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+[data-theme="dark"] .question-feedback--wrong {
+  background-color: rgba(220, 38, 38, 0.13);
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+[data-theme="dark"] .feedback-result--correct { color: #4ade80; }
+[data-theme="dark"] .feedback-result--wrong   { color: #f87171; }
+[data-theme="dark"] .feedback-explanation     { color: var(--text-secondary); }
+
+/* Resultado — breakdown */
+[data-theme="dark"] .breakdown-item--correct {
+  background-color: rgba(22, 163, 74, 0.13);
+  color: #4ade80;
+}
+
+[data-theme="dark"] .breakdown-item--wrong {
+  background-color: rgba(220, 38, 38, 0.13);
+  color: #f87171;
+}
+
+/* Fill input */
+[data-theme="dark"] .fill-input--correct {
+  background-color: rgba(22, 163, 74, 0.15);
+  border-color: #16a34a;
+  color: #4ade80;
+}
+
+[data-theme="dark"] .fill-input--wrong {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+/* Toast */
+[data-theme="dark"] .toast--success {
+  background-color: rgba(22, 163, 74, 0.18);
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+[data-theme="dark"] .toast--error {
+  background-color: rgba(220, 38, 38, 0.18);
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+[data-theme="dark"] .toast--info {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+/* Botão de perigo */
+[data-theme="dark"] .btn--danger {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+[data-theme="dark"] .btn--danger:hover {
+  background-color: rgba(220, 38, 38, 0.15);
+  border-color: #f87171;
+}
+
+/* Step card — número outline */
+[data-theme="dark"] .step-card__number {
+  -webkit-text-stroke-color: var(--accent);
+}
+
+/* Hero — cards flutuantes */
+[data-theme="dark"] .hero__card-float--1 {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* SVG anel de resultado */
+[data-theme="dark"] .score-ring__bg {
+  stroke: var(--bg-secondary);
+}
+
+/* Scrollbar no dark */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}

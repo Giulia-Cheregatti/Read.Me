@@ -1,0 +1,88 @@
+/**
+ * sections.css — Seções genéricas reutilizáveis
+ *
+ * CORREÇÃO: minmax aumentado e auto-fill limitado
+ * para evitar cards apertados em telas grandes.
+ */
+
+/* =============================================
+   SECTION BASE
+============================================= */
+
+.section {
+  margin-bottom: var(--space-20);
+}
+
+.section--alt {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+  margin-inline: calc(-1 * var(--space-6));
+}
+
+.section__header {
+  margin-bottom: var(--space-8);
+}
+
+.section__header--row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.section__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.section__subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  max-width: 55ch;
+  line-height: 1.6;
+}
+
+.section__footer {
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+/* =============================================
+   GRIDS DE LAYOUT
+   Regra geral (mobile-first):
+   → 1 coluna base
+   → media queries adicionam colunas em responsive.css
+   → minmax generoso garante cards respirando
+============================================= */
+
+/* Grid da página de níveis (/levels) */
+.levels-grid {
+  display: grid;
+  grid-template-columns: 1fr;          /* base mobile */
+  gap: var(--space-6);
+}
+
+/* Grid da home (teaser — 6 cards resumidos) */
+.levels-grid--home {
+  display: grid;
+  grid-template-columns: 1fr;          /* base mobile */
+  gap: var(--space-5);
+}
+
+/* Grid de textos de um nível */
+.texts-grid {
+  display: grid;
+  grid-template-columns: 1fr;          /* base mobile */
+  gap: var(--space-6);
+}
+
+/* Grid de steps (como funciona) */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;          /* base mobile */
+  gap: var(--space-5);
+}
