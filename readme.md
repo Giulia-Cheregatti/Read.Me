@@ -55,7 +55,7 @@ inglês!
 
 ## ☕ Agradecimentos e Apoio
 
-- O desenvolvimento deste projeto está sendo feito apenas por mim (Giulia Cheregatti), e você pode acompanhar a evolução deste e de outros projetos e assuntos pelo Instagram: **@_giulia.dev** 🖖 [https://acesse.one/w2zic2o]
+- O desenvolvimento deste projeto está sendo feito apenas por mim (Giulia Cheregatti), e você pode acompanhar a evolução deste e de outros projetos e assuntos pelo Instagram: **@_giulia.dev** 🖖 [https://giulia-cheregatti.github.io/Read.Me/#home]
 
 - Entre em contato conosco pelas redes para feedbacks e ideias de soluções e novas features!
 
